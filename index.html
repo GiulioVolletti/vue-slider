@@ -7,19 +7,20 @@
     <!-- mystyle css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- cdn vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>vue slider</title>
   </head>
   <body>
     <div class="container">
       <div class="html">
-        <div class="left">
+        <div @click="toLeft" class="left">
           <i class="fas fa-chevron-left"></i>
         </div>
-        
-        <img src="" alt="">
+
+        <img v-bind:src="imgUrl[0]" alt="città">
+
         <div class="right">
-          <i class="fas fa-chevron-right"></i>
+          <i @click="toRight" class="fas fa-chevron-right"></i>
         </div>
       </div>
 
