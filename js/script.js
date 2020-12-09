@@ -2,9 +2,10 @@
 var slide = new Vue (
   {
     el: '.html',
+    intervalToStop: '',
     created: function(){
       console.log("hello world");
-      setInterval(() => { this.toRight() }, 1500);
+      this.intervalToStop = setInterval(() => { this.toRight() }, 1500);
     },
     data: {
       index: 0,
@@ -12,6 +13,14 @@ var slide = new Vue (
 
     },
     methods: {
+      toLeftAndBlock: function(){
+        clearInterval(this.intervalToStop)
+        this.toLeft()
+      },
+      toRightAndBlock: function(){
+        clearInterval(this.intervalToStop)
+        this.toRight()
+      },
       toLeft: function (){
         // console.log("left");
         // console.log(this.imgUrl.length);
@@ -25,8 +34,13 @@ var slide = new Vue (
         this.index++;
         // console.log(this.index);
         if (this.index == this.imgUrl.length) {
-          this.index = 0;        ;
-        }
+          this.index = 0;
+        };
+      },
+
+      pointerMoved: function (inde){
+        clearInterval(this.intervalToStop)
+        this.index = inde;
       }
     }
   }

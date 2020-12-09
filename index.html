@@ -13,17 +13,17 @@
   <body>
     <div class="container">
       <div class="html">
-        <div @click="toLeft" class="left">
+        <div @click="toLeftAndBlock" class="left">
           <i class="fas fa-chevron-left"></i>
         </div>
 
         <img v-bind:src="imgUrl[index]" alt="città">
 
         <div class="right">
-          <i @click="toRight" class="fas fa-chevron-right"></i>
+          <i @click="toRightAndBlock" class="fas fa-chevron-right"></i>
         </div>
         <ul>
-          <li v-for="(img, inde) in imgUrl"><i :class= "(inde == index) ? ' fas' : ' far' " class=" fa-circle"></i></li>
+          <li v-for="(img, inde) in imgUrl" @click="pointerMoved(inde)"><i :class= "(inde == index) ? ' fas' : ' far' " class=" fa-circle"></i></li>
         </ul>
       </div>
     </div>
