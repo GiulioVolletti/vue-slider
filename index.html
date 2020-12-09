@@ -22,8 +22,10 @@
         <div class="right">
           <i @click="toRight" class="fas fa-chevron-right"></i>
         </div>
+        <ul>
+          <li v-for="(img, inde) in imgUrl"><i :class= "(inde == index) ? ' fas' : ' far' " class=" fa-circle"></i></li>
+        </ul>
       </div>
-
     </div>
 
     <script src="js/script.js" charset="utf-8"></script>
